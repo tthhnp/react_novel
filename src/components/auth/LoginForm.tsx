@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { EyeOff, Eye } from 'lucide-react';
 
 interface LoginFormProps {
@@ -8,6 +9,7 @@ interface LoginFormProps {
 }
 
 export function LoginForm({ onSubmit, onRegisterClick, onGoogleSignIn }: LoginFormProps) {
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -77,9 +79,13 @@ export function LoginForm({ onSubmit, onRegisterClick, onGoogleSignIn }: LoginFo
         {errors.password && (
           <p className="text-sm text-red-500">{errors.password}</p>
         )}
-        <a href="#" className="block text-right text-sm text-gray-500 hover:text-gray-700 transition-colors duration-200">
+        <button 
+          type="button"
+          onClick={() => navigate('/forgot-password')}
+          className="block text-right text-sm text-gray-500 hover:text-gray-700 transition-colors duration-200"
+        >
           ลืมรหัสผ่าน?
-        </a>
+        </button>
       </div>
 
       <button 

@@ -15,6 +15,11 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
+
+// Configure authentication settings
+auth.useDeviceLanguage(); // Use the device's language for emails
+auth.config.emulator = window.location.hostname === 'localhost'; // Enable emulator in development
+
 export const googleProvider = new GoogleAuthProvider();
 export const analytics = getAnalytics(app);
 
