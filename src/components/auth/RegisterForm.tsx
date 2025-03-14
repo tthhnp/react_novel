@@ -102,14 +102,13 @@ export function RegisterForm({ onSubmit, onLoginClick }: RegisterFormProps) {
         </div>
       </div>
 
-      {/* Form fields with same styling as LoginForm */}
       <div className="space-y-2">
         <label className="block text-sm font-medium text-gray-700">ชื่อ - นามสกุล</label>
         <input
           type="text"
           name="fullName"
           placeholder="Lilly vong"
-          className={`w-full px-4 py-2.5 rounded-lg border ${
+          className={`w-full px-4 py-2.5 rounded-none border ${
             errors.fullName ? 'border-red-500' : 'border-gray-200'
           } focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-colors duration-200`}
           value={formData.fullName}
@@ -127,7 +126,7 @@ export function RegisterForm({ onSubmit, onLoginClick }: RegisterFormProps) {
           type="email"
           name="email"
           placeholder="Example@gmail.com"
-          className={`w-full px-4 py-2.5 rounded-lg border ${
+          className={`w-full px-4 py-2.5 rounded-none border ${
             errors.email ? 'border-red-500' : 'border-gray-200'
           } focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-colors duration-200`}
           value={formData.email}
@@ -146,7 +145,7 @@ export function RegisterForm({ onSubmit, onLoginClick }: RegisterFormProps) {
             type={showPassword ? "text" : "password"}
             name="password"
             placeholder="123456"
-            className={`w-full px-4 py-2.5 rounded-lg border ${
+            className={`w-full px-4 py-2.5 rounded-none border ${
               errors.password ? 'border-red-500' : 'border-gray-200'
             } focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-colors duration-200 pr-10`}
             value={formData.password}
@@ -155,7 +154,7 @@ export function RegisterForm({ onSubmit, onLoginClick }: RegisterFormProps) {
           />
           <button
             type="button"
-            className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors duration-200"
+            className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors duration-200"
             onClick={() => setShowPassword(!showPassword)}
           >
             {showPassword ? <Eye size={16} /> : <EyeOff size={16} />}
@@ -173,7 +172,7 @@ export function RegisterForm({ onSubmit, onLoginClick }: RegisterFormProps) {
             type={showConfirmPassword ? "text" : "password"}
             name="confirmPassword"
             placeholder="123456"
-            className={`w-full px-4 py-2.5 rounded-lg border ${
+            className={`w-full px-4 py-2.5 rounded-none border ${
               errors.confirmPassword ? 'border-red-500' : 'border-gray-200'
             } focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-colors duration-200 pr-10`}
             value={formData.confirmPassword}
@@ -182,7 +181,7 @@ export function RegisterForm({ onSubmit, onLoginClick }: RegisterFormProps) {
           />
           <button
             type="button"
-            className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors duration-200"
+            className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors duration-200"
             onClick={() => setShowConfirmPassword(!showConfirmPassword)}
           >
             {showConfirmPassword ? <Eye size={16} /> : <EyeOff size={16} />}
@@ -195,7 +194,7 @@ export function RegisterForm({ onSubmit, onLoginClick }: RegisterFormProps) {
 
       <button 
         type="submit" 
-        className="w-full bg-black hover:bg-black/90 text-white py-2.5 rounded-lg font-medium transition-colors duration-200"
+        className="w-full bg-black hover:bg-black/90 text-white py-2.5 rounded-none font-medium transition-colors duration-200"
       >
         ลงทะเบียน
       </button>
@@ -205,16 +204,16 @@ export function RegisterForm({ onSubmit, onLoginClick }: RegisterFormProps) {
           <div className="w-full border-t border-gray-200"></div>
         </div>
         <div className="relative flex justify-center text-sm">
-          <span className="px-2 bg-white text-gray-500">หรือ</span>
+          <span className="px-2 text-gray-500">หรือ</span>
         </div>
       </div>
 
       <button 
         type="button" 
-        className="w-full flex items-center justify-center gap-3 px-4 py-2.5 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors duration-200"
+        className="w-full flex items-center justify-center gap-3 px-4 py-2.5 border border-gray-200 rounded-none hover:bg-gray-50 transition-colors duration-200"
       >
         <img
-          src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_24dp.png"
+          src="https://cdn-icons-png.flaticon.com/512/300/300221.png"
           alt="Google"
           className="w-5 h-5 object-contain"
         />

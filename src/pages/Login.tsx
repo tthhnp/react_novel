@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
+import { signInWithEmailAndPassword, signInWithPopup, getAuth } from 'firebase/auth';
 import { auth, googleProvider } from '../lib/firebase';
 import { LoginForm } from '../components/auth/LoginForm';
 import { Header } from '../layouts/Header';
@@ -23,12 +23,29 @@ export function LoginPage() {
 
   const handleGoogleSignIn = async () => {
     try {
+      // Get a fresh auth instance
+      const auth = getAuth();
+      
+      // Clear any previous errors
+      setError('');
+      
+      // Attempt sign in with popup
       const result = await signInWithPopup(auth, googleProvider);
       console.log('Google sign in successful:', result.user);
       navigate('/home');
-    } catch (error) {
+    } catch (error: any) {
       console.error('Google sign in error:', error);
-      setError('Failed to sign in with Google');
+      
+      // Handle specific error cases
+      if (error.code === 'auth/popup-blocked') {
+        setError('Please allow popups for this website and try again');
+      } else if (error.code === 'auth/cancelled-popup-request') {
+        setError('Sign in was cancelled');
+      } else if (error.code === 'auth/popup-closed-by-user') {
+        setError('Sign in window was closed before completion');
+      } else {
+        setError('Failed to sign in with Google. Please try again.');
+      }
     }
   };
 
