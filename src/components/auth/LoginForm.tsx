@@ -43,7 +43,7 @@ export function LoginForm({ onSubmit, onRegisterClick, onGoogleSignIn }: LoginFo
         <input
           type="email"
           placeholder="Example@gmail.com"
-          className={`w-full px-4 py-2.5 rounded-none border ${
+          className={`w-full px-4 py-2.5 rounded-lg border ${
             errors.email ? 'border-red-500' : 'border-gray-200'
           } focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-colors duration-200`}
           value={email}
@@ -61,7 +61,7 @@ export function LoginForm({ onSubmit, onRegisterClick, onGoogleSignIn }: LoginFo
           <input
             type={showPassword ? "text" : "password"}
             placeholder="123456"
-            className={`w-full px-4 py-2.5 rounded-none border ${
+            className={`w-full px-4 py-2.5 rounded-lg border ${
               errors.password ? 'border-red-500' : 'border-gray-200'
             } focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-colors duration-200 pr-10`}
             value={password}
@@ -90,7 +90,7 @@ export function LoginForm({ onSubmit, onRegisterClick, onGoogleSignIn }: LoginFo
 
       <button 
         type="submit" 
-        className="w-full bg-black hover:bg-black/90 text-white py-2.5 rounded-none font-medium transition-colors duration-200"
+        className="w-full bg-black hover:bg-black/90 text-white py-2.5 rounded-[32px] font-medium transition-colors duration-200"
       >
         เข้าสู่ระบบ
       </button>
@@ -107,7 +107,7 @@ export function LoginForm({ onSubmit, onRegisterClick, onGoogleSignIn }: LoginFo
       <button 
         type="button" 
         onClick={onGoogleSignIn}
-        className="w-full flex items-center justify-center gap-3 px-4 py-2.5 border border-gray-200 rounded-none hover:bg-gray-50 transition-colors duration-200"
+        className="w-full flex items-center justify-center gap-3 px-4 py-2.5 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors duration-200"
       >
         <img
           src="https://cdn-icons-png.flaticon.com/512/300/300221.png"

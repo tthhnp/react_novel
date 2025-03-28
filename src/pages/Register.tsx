@@ -15,7 +15,6 @@ export function RegisterPage() {
     email: string;
     password: string;
     confirmPassword: string;
-    profileImage?: File;
   }) => {
     try {
       // Create user with email and password

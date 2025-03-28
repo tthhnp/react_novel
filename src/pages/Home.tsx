@@ -589,7 +589,7 @@ export function HomePage() {
                 </div>
                 <div className="relative h-24 rounded-xl overflow-hidden bg-gradient-to-r from-purple-400 to-purple-500 hover:shadow-lg transition-shadow duration-200">
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="text-white text-lg font-medium">นิยาย</span>
+                    <span className="text-white text-lg font-medium">นิทานเสียง</span>
                   </div>
                 </div>
               </div>

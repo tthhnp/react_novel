@@ -6,6 +6,8 @@ import { ForgotPasswordPage } from './pages/ForgotPassword';
 import { NewPasswordPage } from './pages/NewPassword';
 import { HomePage } from './pages/Home';
 import { UploadProjectPage } from './pages/UploadProject';
+import { ProjectFormPage } from './pages/ProjectForm';
+import { ProjectDetailsPage } from './pages/ProjectDetails';
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
         <Route path="/new-password" element={<NewPasswordPage />} />
         <Route path="/home" element={<HomePage />} />
         <Route path="/upload" element={<UploadProjectPage />} />
+        <Route path="/project-form" element={<ProjectFormPage />} />
+        <Route path="/project-details" element={<ProjectDetailsPage />} />
       </Routes>
     </Router>
   );

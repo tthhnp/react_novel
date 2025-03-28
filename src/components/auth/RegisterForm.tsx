@@ -1,5 +1,5 @@
 import React, { useState, ChangeEvent } from 'react';
-import { EyeOff, Eye, Upload } from 'lucide-react';
+import { EyeOff, Eye } from 'lucide-react';
 
 interface RegisterFormProps {
   onSubmit: (data: {
@@ -7,7 +7,6 @@ interface RegisterFormProps {
     email: string;
     password: string;
     confirmPassword: string;
-    profileImage?: File;
   }) => void;
   onLoginClick: () => void;
 }
@@ -21,8 +20,6 @@ export function RegisterForm({ onSubmit, onLoginClick }: RegisterFormProps) {
     password: '',
     confirmPassword: ''
   });
-  const [profileImage, setProfileImage] = useState<File | null>(null);
-  const [previewUrl, setPreviewUrl] = useState<string>('');
   const [touched, setTouched] = useState({
     fullName: false,
     email: false,
@@ -49,15 +46,6 @@ export function RegisterForm({ onSubmit, onLoginClick }: RegisterFormProps) {
     setTouched(prev => ({ ...prev, [field]: true }));
   };
 
-  const handleImageChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      setProfileImage(file);
-      const url = URL.createObjectURL(file);
-      setPreviewUrl(url);
-    }
-  };
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setTouched({
@@ -68,47 +56,19 @@ export function RegisterForm({ onSubmit, onLoginClick }: RegisterFormProps) {
     });
 
     if (Object.values(errors).every(error => !error)) {
-      onSubmit({
-        ...formData,
-        profileImage: profileImage || undefined
-      });
+      onSubmit(formData);
     }
   };
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
-      <div className="flex justify-center">
-        <div className="relative">
-          <div className="w-24 h-24 rounded-full bg-gray-100 flex items-center justify-center overflow-hidden">
-            {previewUrl ? (
-              <img src={previewUrl} alt="Profile preview" className="w-full h-full object-cover" />
-            ) : (
-              <Upload className="w-8 h-8 text-gray-400" />
-            )}
-          </div>
-          <input
-            type="file"
-            accept="image/*"
-            onChange={handleImageChange}
-            className="hidden"
-            id="profile-image"
-          />
-          <label
-            htmlFor="profile-image"
-            className="absolute bottom-0 right-0 p-2 bg-black hover:bg-black/90 text-white rounded-full cursor-pointer transition-colors duration-200"
-          >
-            <Upload size={16} />
-          </label>
-        </div>
-      </div>
-
       <div className="space-y-2">
         <label className="block text-sm font-medium text-gray-700">ชื่อ - นามสกุล</label>
         <input
           type="text"
           name="fullName"
           placeholder="Lilly vong"
-          className={`w-full px-4 py-2.5 rounded-none border ${
+          className={`w-full px-4 py-2.5 rounded-lg border ${
             errors.fullName ? 'border-red-500' : 'border-gray-200'
           } focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-colors duration-200`}
           value={formData.fullName}
@@ -126,7 +86,7 @@ export function RegisterForm({ onSubmit, onLoginClick }: RegisterFormProps) {
           type="email"
           name="email"
           placeholder="Example@gmail.com"
-          className={`w-full px-4 py-2.5 rounded-none border ${
+          className={`w-full px-4 py-2.5 rounded-lg border ${
             errors.email ? 'border-red-500' : 'border-gray-200'
           } focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-colors duration-200`}
           value={formData.email}
@@ -145,7 +105,7 @@ export function RegisterForm({ onSubmit, onLoginClick }: RegisterFormProps) {
             type={showPassword ? "text" : "password"}
             name="password"
             placeholder="123456"
-            className={`w-full px-4 py-2.5 rounded-none border ${
+            className={`w-full px-4 py-2.5 rounded-lg border ${
               errors.password ? 'border-red-500' : 'border-gray-200'
             } focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-colors duration-200 pr-10`}
             value={formData.password}
@@ -172,7 +132,7 @@ export function RegisterForm({ onSubmit, onLoginClick }: RegisterFormProps) {
             type={showConfirmPassword ? "text" : "password"}
             name="confirmPassword"
             placeholder="123456"
-            className={`w-full px-4 py-2.5 rounded-none border ${
+            className={`w-full px-4 py-2.5 rounded-lg border ${
               errors.confirmPassword ? 'border-red-500' : 'border-gray-200'
             } focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-colors duration-200 pr-10`}
             value={formData.confirmPassword}
@@ -194,7 +154,7 @@ export function RegisterForm({ onSubmit, onLoginClick }: RegisterFormProps) {
 
       <button 
         type="submit" 
-        className="w-full bg-black hover:bg-black/90 text-white py-2.5 rounded-none font-medium transition-colors duration-200"
+        className="w-full bg-black hover:bg-black/90 text-white py-2.5 rounded-[32px] font-medium transition-colors duration-200"
       >
         ลงทะเบียน
       </button>
@@ -210,7 +170,7 @@ export function RegisterForm({ onSubmit, onLoginClick }: RegisterFormProps) {
 
       <button 
         type="button" 
-        className="w-full flex items-center justify-center gap-3 px-4 py-2.5 border border-gray-200 rounded-none hover:bg-gray-50 transition-colors duration-200"
+        className="w-full flex items-center justify-center gap-3 px-4 py-2.5 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors duration-200"
       >
         <img
           src="https://cdn-icons-png.flaticon.com/512/300/300221.png"
