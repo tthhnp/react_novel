@@ -107,7 +107,7 @@ export function LoginForm({ onSubmit, onRegisterClick, onGoogleSignIn }: LoginFo
       <button 
         type="button" 
         onClick={onGoogleSignIn}
-        className="w-full flex items-center justify-center gap-3 px-4 py-2.5 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors duration-200"
+        className="w-full flex items-center justify-center gap-3 px-4 py-2.5 border border-gray-200 rounded-[32px] hover:bg-gray-50 transition-colors duration-200"
       >
         <img
           src="https://cdn-icons-png.flaticon.com/512/300/300221.png"
