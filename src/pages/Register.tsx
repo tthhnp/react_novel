@@ -44,7 +44,7 @@ export function RegisterPage() {
   };
 
   return (
-    <div className="min-h-screen relative bg-[url('https://i.pinimg.com/736x/b3/1e/40/b31e4094a4fce54bd0418c76cf47c93d.jpg')] bg-cover bg-center">
+    <div className="min-h-screen relative  bg-cover bg-center">
       <div className="absolute inset-0 bg-black/50"></div>
       <div className="relative z-10 min-h-screen flex flex-col">
         <Header currentPage="register" onPageChange={() => handleLoginClick()} />
