@@ -471,7 +471,7 @@ export function HomePage() {
       {/* Main Content */}
       <div className="flex-1">
         {/* Header */}
-        <header className="bg-white border-b border-gray-200 py-4 px-8 flex items-center justify-between">
+        <header className="bg-white border-b border-gray-200 py-3.5 px-8 flex items-center justify-between">
           <button 
             onClick={toggleSidebar}
             className="lg:hidden text-gray-500 hover:text-gray-700 transition-colors"
@@ -489,7 +489,7 @@ export function HomePage() {
                     placeholder="ค้นหานิยาย..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-[300px] pl-10 pr-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500"
+                    className="w-[300px] pl-10 pr-4 py-1.5 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500"
                     autoFocus
                     onBlur={() => {
                       if (!searchQuery) {
@@ -536,11 +536,12 @@ export function HomePage() {
           {/* Login Button for non-authenticated users */}
           {!user && (
             <button
-              onClick={handleLoginClick}
-              className="bg-black text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-black/90 transition-colors"
-            >
-              เข้าสู่ระบบ
-            </button>
+  onClick={handleLoginClick}
+  className="ml-auto bg-black text-white px-4 py-1.5 rounded-full text-sm font-medium hover:bg-black/90 transition-colors"
+>
+  เข้าสู่ระบบ
+</button>
+
           )}
         </header>
 
