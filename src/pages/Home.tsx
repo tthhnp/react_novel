@@ -481,7 +481,7 @@ export function HomePage() {
 
           {/* Search Bar */}
           {user && (
-            <div className="relative ml-auto w-full max-w-md">
+            <div className="relative ml-auto">
               {isSearchOpen ? (
                 <div className="relative">
                   <input
@@ -489,7 +489,7 @@ export function HomePage() {
                     placeholder="ค้นหานิยาย..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-full pl-10 pr-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500"
+                    className="w-[300px] pl-10 pr-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500"
                     autoFocus
                     onBlur={() => {
                       if (!searchQuery) {
@@ -499,7 +499,7 @@ export function HomePage() {
                   />
                   <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
                   {searchQuery && (
-                    <div className="absolute left-0 right-0 top-full mt-2 bg-white rounded-lg shadow-lg border border-gray-200 max-h-96 overflow-y-auto">
+                    <div className="absolute left-0 right-0 top-full mt-2 bg-white rounded-lg shadow-lg border border-gray-200 max-h-96 overflow-y-auto z-50">
                       {filteredNovels.length > 0 ? (
                         <div className="p-2 grid grid-cols-1 gap-4">
                           {filteredNovels.map(novel => (
@@ -525,7 +525,7 @@ export function HomePage() {
               ) : (
                 <button
                   onClick={() => setIsSearchOpen(true)}
-                  className="ml-auto p-2 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-full transition-colors"
+                  className="p-2 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-full transition-colors"
                 >
                   <Search size={20} />
                 </button>
@@ -537,7 +537,7 @@ export function HomePage() {
           {!user && (
             <button
               onClick={handleLoginClick}
-              className="ml-auto bg-black text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-black/90 transition-colors"
+              className="bg-black text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-black/90 transition-colors"
             >
               เข้าสู่ระบบ
             </button>
@@ -673,7 +673,6 @@ export function HomePage() {
                         className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 min-w-full"
                       >
                         {popularNovels
-                          
                           .slice(
                             slideIndex * itemsPerSlide,
                             (slideIndex + 1) * itemsPerSlide
